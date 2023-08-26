@@ -1,9 +1,9 @@
-<nav class="navbar-column">
+<nav class="navbar-container">
 
   {{!-- Logo --}}
-  <div class="logo-container">
+  <div class="navbar-logo-container">
     <a href="/admin/tweets">
-      <img src="/images/icons/logo.svg" alt="Logo" class="logo">
+      <img src="/stylesheets/icons/logo.svg" alt="logo" class="navbar-logo">
     </a>
   </div>
 
@@ -12,7 +12,7 @@
     <div class="nav-row">
       <a class="nav-item-tweet {{#if tweets}}active{{/if}}" href="/admin/tweets">
         <div class="home-icon"></div>
-        <h5 class="nav-title-tweet-tab">推文清單</h5>
+        <h5 class="nav-title-tweet">推文清單</h5>
       </a>
     </div>
 
@@ -20,7 +20,7 @@
     <div class="nav-row">
       <a class="nav-item-user {{#if users}}active{{/if}}" href="/admin/users">
         <div class="user-icon"></div>
-        <h5 class="nav-title-user-tab">使用者列表</h5>
+        <h5 class="nav-title-user">使用者列表</h5>
       </a>
     </div>
   </div>
@@ -29,8 +29,7 @@
   <div class="nav-row-logout">
     <form action="/admin/signin" method="POST" class="logout-form">
       <button type="submit" class="btn nav-item-logout">
-        <div class="logout-icon">
-        </div>
+        <div class="logout-icon"></div>
         <h5 class="nav-title-logout">登出</h5>
       </button>
     </form>
