@@ -13,6 +13,6 @@ router.get('/signin', adminController.signInPage)
 router.post('/signin', passport.authenticate('adminSignin', { failureRedirect: '/admin/signin', failureFlash: true }), adminController.signIn)
 
 // admin tweets
-router.get('/tweets', adminAuthenticated, adminController.adminGetTweets)
+router.get('/tweets', adminAuthenticated, adminController.getTweets)
 
 module.exports = router

@@ -3,34 +3,43 @@
 
     {{> admin-navbar}}
 
-    <section class="main">
       {{!-- Title --}}
-      <h4 class="main-title">
-        推文清單
-      </h4>
+    <div class="admin">
+      <div class="admin-main">
+        <div class="header-admin">
+          <h4 class="main-title">
+            推文清單
+          </h4>
+        </div>
 
-     {{!-- Tweet --}}
-      <div class="card card-tweet-lg">
-        <a href="#" class="tweet-href"></a>
-        <div class="avatar">
-          <a href="#" class="primary-anchor">
-            <img src="/images/icons/profile-img.svg" alt="avatar" class="avatar">
-          </a>
-        </div>
-        <div class="card-text">
-          <div class="card-text-info">
-            <a href="#" class="primary-anchor">
-              <span class="card-name">Apple</span>
-            </a>
-            <a href="#" class="primary-anchor">
-              <span class="card-account">@apple</span>
-            </a>
-            <span class="card-dot">·</span>
-            <span class="card-datetime">3小時</span>
+        {{!-- Tweet --}}
+        <div class="admin-tweets">
+          {{#each tweets }}
+          <div class="admin-tweet">
+            <div class="admin-tweet-left">
+              {{#if this.User.avatar}}
+              <img class="rounded-circle" src="{{this.User.avatar}}" alt="avatar" title="avatar" width="50px" height="50px">
+              {{else}}
+              <img class="rounded-circle" src="/images/icons/profile-img.svg" alt="avatar" title="avatar" width="50px" height="50px">
+              {{/if}}
+            </div>
+
+            <div class="admin-tweet-right">
+              <div class="admin-tweet-right-up">
+                <span class="name">{{ this.User.name }}</span>
+                <span class="account">&nbsp;@{{ this.User.account}}<b> •</b>{{relativeTimeFromNow this.createdAt}}</span>
+
+              <div class="tweet-xmark">
+                <form action="/admin/tweets/{{this.id}}?_method=DELETE" method="POST">
+                  <button type="submit"><img src="/images/icons/close.svg" onclick="return confirm(`確定要刪除此tweet嗎？`)"></button>
+                </form>            
+              </div>
+
           </div>
-          <p class="card-description">Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum
-            dolor.
-            Voluptate exercitation incididunt
-            aliquip deserunt reprehenderit elit laborum.</p>
+          <p class="content">{{this.description}}</p>
         </div>
+          {{/each}}
       </div>
+    </div>
+  </div>
+</div>
