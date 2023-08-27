@@ -17,5 +17,7 @@ router.get('/tweets', adminAuthenticated, adminController.getTweets)
 router.delete('/tweets/:id', adminAuthenticated, adminController.deleteTweet)
 
 // admin users
+router.get('/users', adminAuthenticated, adminController.getUsers)
+
 
 module.exports = router

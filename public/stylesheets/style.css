@@ -76,6 +76,7 @@ a:hover {
   text-decoration: none;
 }
 
+
 /* ---------- Page flexbox ---------- */
 
 .wrapper {
@@ -118,7 +119,6 @@ a:hover {
   height: 40px;
   width: 40px;
   object-fit: unset;
-}
 
 .nav-row {
   position: relative;
@@ -301,6 +301,165 @@ a:hover {
 
 .card-description {
   margin: 8px 0 0 0;
+  width: 178px;
+  height: 58px;
+}
+
+.nav-item-tweet {
+  position: relative;
+  justify-content: space-between;
+  top: 16px;
+  left: 16px;
+  gap: 16px;
+  width: 112px;
+  height: 26px;
+  color: #44444F;
+  text-decoration: none;
+}
+
+.nav-item-tweet:hover,
+.active {
+  text-decoration: none;
+  color: #FF6600;
+}
+
+.nav-item-user {
+  position: relative;
+  top: 16px;
+  left: 16px;
+  gap: 16px;
+  width: 130px;
+  height: 26px;
+  color: #44444F;
+  text-decoration: none;
+}
+
+.nav-item-user:hover,
+.active {
+  text-decoration: none;
+  color: #FF6600;
+}
+
+.home-icon {
+  position: absolute;
+  left: 0px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url('/images/icons/home_outlined.svg');
+  background-size: contain;
+}
+
+.nav-item-tweet:hover>.home-icon,
+.active>.home-icon {
+  position: absolute;
+  left: 0px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url('/images/icons/home_filled.svg');
+  background-size: contain;
+}
+
+.user-icon {
+  position: absolute;
+  left: 0px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url('/images/icons/user_outlined.svg');
+  background-size: contain;
+}
+
+.nav-item-user:hover>.user-icon,
+.active>.user-icon {
+  position: absolute;
+  left: 0px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url('/images/icons/user_filled.svg');
+  background-size: contain;
+} 
+
+.nav-title-tweet-tab {
+  width: 72px;
+  height: 26px;
+  /* padding-left: 35px; */
+  /* margin-bottom: 40px; */
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.nav-title-user-tab {
+  width: 72px;
+  height: 26px;
+  /* padding-left: 35px; */
+  /* margin-bottom: 40px; */
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.nav-row-logout {
+  position: absolute;
+  width: 178px;
+  height: 58px;
+  top: 1142px;
+  /* bottom: 50px; */
+}
+
+.nav-item-logout {
+  position: relative;
+  /* top: 16px;
+  left: 16px; */
+  width: 76px;
+  height: 26px;
+  gap: 16px;
+  color: #44444F;
+  text-decoration: none;
+}
+
+.nav-item-logout:hover {
+  text-decoration: none;
+  color: #FF6600;
+}
+
+.logout-icon {
+  position: absolute;
+  left: 0px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url('/images/icons/logout.svg');
+  background-size: contain;
+}
+
+.nav-item-logout:hover>.logout-icon {
+  position: absolute;
+  left: 0px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url('/images/icons/logout_colored.svg');
+  background-size: contain;
+}
+
+.nav-title-logout {
+  width: 36px;
+  height: 26px;
+  /* padding-left: 35px; */
+  /* margin-bottom: 40px; */
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0px;
+  text-align: left;
 }
 
 
@@ -461,7 +620,6 @@ a:hover {
   line-height: 30px;
   letter-spacing: 0px;
 }
-
 
 /* ---------- Modal ---------- */
 
