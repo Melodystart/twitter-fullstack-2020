@@ -38,8 +38,8 @@ const userController = {
 
       req.flash('success_messages', '註冊成功！')
       return res.redirect('/signin')
-    } catch (err) {
-      next(err)
+    } catch (error) {
+      next(error)
     }
   },
   signInPage: (req, res) => {
@@ -50,9 +50,15 @@ const userController = {
     res.redirect('/tweets')
   },
   logout: (req, res) => {
-    req.flash('success_messages', '成功登出！')
-    req.logout()
-    res.redirect('/signin')
+    if (req.user.role === 'user') {
+      req.logout()
+      req.flash('success_messages', '成功登出！')
+      return res.redirect('/signin')
+    } else {
+      req.logout()
+      req.flash('success_messages', '成功登出！')
+      return res.redirect('/admin/signin')
+    }
   }
 }
 

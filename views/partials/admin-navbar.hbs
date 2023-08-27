@@ -1,4 +1,4 @@
-<nav class="navbar-container">
+<nav class="navbar-column">
 
   {{!-- Logo --}}
   <div class="navbar-logo-container">
@@ -7,32 +7,33 @@
     </a>
   </div>
 
-  <div class="main-navbar">
+  {{!-- <div class="main-navbar"> --}}
     {{!-- Tweets tab --}}
-    <div class="nav-row">
-      <a class="nav-item-tweet {{#if tweets}}active{{/if}}" href="/admin/tweets">
-        <div class="home-icon"></div>
-        <h5 class="nav-title-tweet">推文清單</h5>
-      </a>
-    </div>
+    {{!-- <div class="nav-row"> --}}
+  <a class="nav-row {{#if tweets}}active{{/if}}" id="adminTweets" href="/admin/tweets">
+    <div class="nav-row-home-icon background-image"></div>
+    <h5 class="nav-row-title">推文清單</h5>
+  </a>
+    {{!-- </div> --}}
 
   {{!-- Users list --}}
-    <div class="nav-row">
-      <a class="nav-item-user {{#if users}}active{{/if}}" href="/admin/users">
-        <div class="user-icon"></div>
-        <h5 class="nav-title-user">使用者列表</h5>
-      </a>
-    </div>
-  </div>
+    {{!-- <div class="nav-row"> --}}
+  <a class="nav-row {{#if users}}active{{/if}}" id="adminUsers" href="/admin/users">
+    <div class="nav-row-user-icon"></div>
+    <h5 class="nav-row-title">使用者列表</h5>
+  </a>
+    {{!-- </div> --}}
+  {{!-- </div> --}}
 
   {{!-- Log out --}}
-  <div class="nav-row-logout">
-    <form action="/admin/signin" method="POST" class="logout-form">
-      <button type="submit" class="btn nav-item-logout">
-        <div class="logout-icon"></div>
-        <h5 class="nav-title-logout">登出</h5>
-      </button>
-    </form>
-  </div>
+  {{!-- <div class="nav-row-logout"> --}}
+  <form action="/admin/signin" method="POST" class="logout-form">
+    <button type="submit" class="btn" id="adminLogout">
+      <div class="nav-row">
+        <div class="nav-row-logout-icon background-image"></div>
+        <h5 class="nav-row-title">登出</h5>
+      </div>
+    </button>
+  </form>
 
 </nav>
