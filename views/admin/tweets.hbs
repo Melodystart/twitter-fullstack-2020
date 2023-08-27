@@ -1,42 +1,56 @@
-<div class="wrapper">
+<div class="container">
+  <div class="wrapper">
+    
+    {{> admin-navbar}}
 
-{{> admin-navbar}}
-
-<div class="admin-tweets-container">
-
-  {{!-- Title --}}
-  <div class="admin-header">
-    <h4 class="main-title">推文清單</h4>
-  </div>
-
-  {{!-- Tweet --}}
-  <div class="admin-tweets">
-    {{#each tweets }}
-    <div class="admin-tweet">
-      <div class="admin-tweet-left">
-        {{#if this.User.avatar}}
-          <img class="rounded-circle" src="{{this.User.avatar}}" alt="avatar" title="avatar" width="50px" height="50px">
-        {{else}}
-          <img class="rounded-circle" src="/images/icons/profile-img.svg" alt="avatar" title="avatar" width="50px" height="50px">
-        {{/if}}
+    {{!-- Main --}}
+    <div class="main">
+      
+      {{!-- Title --}}
+      <h4 class="main-title">推文清單</h4>
+      
+      {{!-- Tweets --}}
+      {{#each tweets }}
+      <div class="card card-tweet-lg">
+        <a class="tweet-href"></a>
+        <div class="avatar" data-bs-toggle="modal" data-bs-target="#adminTweetModal-{{this.id}}" data-tweetid="{{ this.id }}">
+          <a class="primary-anchor">
+            {{#if this.User.avatar}}
+            <img src="{{this.User.avatar}}" alt="avatar" class="avatar">
+            {{else}}
+            <img src="/stylesheets/icons/profile-img.svg" alt="avatar" class="avatar">
+            {{/if}}
+          </a>
         </div>
-
-            <div class="admin-tweet-right">
-              <div class="admin-tweet-right-up">
-                <span class="name">{{ this.User.name }}</span>
-                <span class="account">&nbsp;@{{ this.User.account}}<b> •</b>{{relativeTimeFromNow this.createdAt}}</span>
-
-              <div class="tweet-xmark">
-                <form action="/admin/tweets/{{this.id}}?_method=DELETE" method="POST">
-                  <button type="submit"><img src="/images/icons/close.svg" onclick="return confirm(`確定要刪除此tweet嗎？`)"></button>
-                </form>            
-              </div>
-
+          
+        <div class="card-text">
+            <form action="/admin/tweets/{{this.id}}?_method=DELETE" method="POST" class="tweet-delete-form" >
+              <button class="close-btn" id="adminDeleteButton" type="submit">
+                <img src="/stylesheets/icons/close.svg" onclick="return confirm(`確定要刪除此 Tweet 嗎？`)" alt="delete">
+              </button>
+            </form>
+            
+          <div class="card-text-info" data-bs-toggle="modal" data-bs-target="#adminTweetModal-{{this.id}}" data-tweetid="{{ this.id }}">
+            <a class="primary-anchor">
+              <span class="card-name">{{this.User.name}}</span>
+            </a>
+            <a class="primary-anchor">
+              <span class="card-account">@{{this.User.account}}</span>
+            </a>
+            <span class="card-dot">·</span>
+            <span class="card-datetime">{{relativeTimeFromNow this.updatedAt}}</span>
+            <a class="primary-anchor">
+              <p class="card-description">{{this.simpleText}}</p>
+            </a>
           </div>
-          <p class="content">{{this.description}}</p>
         </div>
-          {{/each}}
       </div>
+
+      {{!-- {{> admin-tweet-modal}} --}}
+
+      {{/each}}
     </div>
+  </div>
 </div>
-</div>
+
+    

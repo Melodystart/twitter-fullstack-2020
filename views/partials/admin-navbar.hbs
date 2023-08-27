@@ -7,28 +7,21 @@
     </a>
   </div>
 
-  {{!-- <div class="main-navbar"> --}}
-    {{!-- Tweets tab --}}
-    {{!-- <div class="nav-row"> --}}
+  {{!-- Tweets tab --}}
   <a class="nav-row {{#if tweets}}active{{/if}}" id="adminTweets" href="/admin/tweets">
     <div class="nav-row-home-icon background-image"></div>
     <h5 class="nav-row-title">推文清單</h5>
   </a>
-    {{!-- </div> --}}
 
   {{!-- Users list --}}
-    {{!-- <div class="nav-row"> --}}
   <a class="nav-row {{#if users}}active{{/if}}" id="adminUsers" href="/admin/users">
     <div class="nav-row-user-icon"></div>
     <h5 class="nav-row-title">使用者列表</h5>
   </a>
-    {{!-- </div> --}}
-  {{!-- </div> --}}
 
   {{!-- Log out --}}
-  {{!-- <div class="nav-row-logout"> --}}
   <form action="/admin/signin" method="POST" class="logout-form">
-    <button type="submit" class="btn" id="adminLogout">
+    <button type="submit" class="logout-btn" id="adminLogout">
       <div class="nav-row">
         <div class="nav-row-logout-icon background-image"></div>
         <h5 class="nav-row-title">登出</h5>

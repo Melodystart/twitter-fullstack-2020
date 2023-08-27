@@ -14,7 +14,7 @@ router.post('/signin', passport.authenticate('adminSignin', { failureRedirect: '
 
 // admin tweets
 router.get('/tweets', adminAuthenticated, adminController.getTweets)
-router.delete('/tweets/:tweetId', adminAuthenticated, adminController.deleteTweet)
+router.delete('/tweets/:id', adminAuthenticated, adminController.deleteTweet)
 
 // admin users
 
